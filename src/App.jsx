@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { productsData } from "./api/api"
 import Product from "./components/Product"
+import Cart from "./components/Cart"
 
 function App() {
   const [products, setProducts] = useState([])
@@ -9,13 +10,16 @@ function App() {
     productsData().then(result => setProducts(result.data))
   }, [])
 
+  console.log(products);
+  
+
   return (
     <div className="w-10/12 m-auto">
-      <div className="flex flex-row gap-4 mt-10">
-        <main className="w-3/5">
+      <div className="md:flex flex-row gap-4 m-10">
+        <main className="md:w-3/5">
           <h1 className="font-bold text-5xl text-rose-950 mb-10">Desserts</h1>
 
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {
               products.map(product => (
                 <Product key={product.name} product={product} />
@@ -24,8 +28,8 @@ function App() {
           </div>
         </main>
 
-        <div className="w-2/5">
-          cart
+        <div className="md:w-2/5">
+          <Cart />
         </div>
       </div>
     </div>
