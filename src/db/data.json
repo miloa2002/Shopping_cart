@@ -1,4 +1,5 @@
-[
+{
+    "products": [
     {
        "image": {
             "thumbnail": "./assets/images/image-waffle-thumbnail.jpg",
@@ -98,4 +99,5 @@
         "category": "Panna Cotta",
         "price": 6.50
      }
-]
+    ]
+}
