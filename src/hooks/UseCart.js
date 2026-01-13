@@ -33,6 +33,20 @@ export const UseCart = () => {
 
     setCart(updatedCart);
   }
+  
+  const decreaseQuantity = (id) => {
+    const updatedCart = [...cart]
+    updatedCart.map(element => {
+      if(element.id === id) {
+        if(element.quantity >= 1) {
+          return element.quantity --;
+        }
+      }
+      return element;
+    })
+
+    setCart(updatedCart);
+  }
 
   useEffect(() => {
     const getProducts = async () => {
@@ -51,6 +65,7 @@ export const UseCart = () => {
     products,
     cart,
     addToCart,
-    increaseQuantity
+    increaseQuantity,
+    decreaseQuantity
   };
 };

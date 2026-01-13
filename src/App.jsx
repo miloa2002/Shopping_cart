@@ -4,7 +4,7 @@ import { UseCart } from "./hooks/UseCart"
 
 function App() {
   
-  const { products, cart, addToCart, increaseQuantity } = UseCart();
+  const { products, cart, addToCart, increaseQuantity, decreaseQuantity } = UseCart();
 
   return (
     <div className="w-10/12 m-auto">
@@ -15,7 +15,7 @@ function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {
               products.map(product => (
-                <Product key={product.name} product={product} addToCart={addToCart} cart={cart} increaseQuantity={increaseQuantity} />
+                <Product key={product.name} product={product} addToCart={addToCart} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />
               ))
             }
           </div>

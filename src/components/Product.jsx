@@ -1,6 +1,6 @@
 import { numberPrice } from "../utils";
 
-export default function Product({ product, cart = [], addToCart, increaseQuantity }) {
+export default function Product({ product, cart = [], addToCart, increaseQuantity, decreaseQuantity }) {
   const productExistsInCart = cart.find((element) => element.id === product.id);
 
   return (
@@ -28,7 +28,10 @@ export default function Product({ product, cart = [], addToCart, increaseQuantit
           </button>
         ) : (
           <div className="flex items-center justify-center absolute bottom-0 left-0 right-0 translate-y-1/2 bg-red-700 w-2/3 m-auto p-2 rounded-full border-0">
-            <button className="w-6 h-6 m-auto border rounded-full flex justify-center items-center text-white cursor-pointer">
+            <button 
+              className="w-6 h-6 m-auto border rounded-full flex justify-center items-center text-white cursor-pointer"
+              onClick={() => decreaseQuantity(product.id)}
+            >
               −
             </button>
 
