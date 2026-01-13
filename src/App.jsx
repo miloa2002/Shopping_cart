@@ -22,7 +22,7 @@ function App() {
         </main>
 
         <div className="md:w-2/5">
-          <Cart />
+          <Cart cart={cart}/>
         </div>
       </div>
     </div>
