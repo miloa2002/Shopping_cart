@@ -48,6 +48,12 @@ export const UseCart = () => {
     setCart(updatedCart);
   }
 
+  const deleteProduct = (id) => {
+    setCart(
+      prevCart => prevCart.filter(e => e.id !== id)
+    )
+  }
+
   useEffect(() => {
     const getProducts = async () => {
         try {
@@ -66,6 +72,7 @@ export const UseCart = () => {
     cart,
     addToCart,
     increaseQuantity,
-    decreaseQuantity
+    decreaseQuantity,
+    deleteProduct
   };
 };

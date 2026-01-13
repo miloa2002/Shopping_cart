@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { numberPrice } from "../utils";
 
-export default function Cart({ cart = [] }) {
+export default function Cart({ cart = [], deleteProduct }) {
   const orderTotals = useMemo(() => {
     return cart.reduce(
       (accum, element) => accum + element.price * element.quantity,
@@ -49,7 +49,7 @@ export default function Cart({ cart = [] }) {
                     </div>
                   </div>
 
-                  <div className="border border-rose-950 p-1 rounded-full cursor-pointer">
+                  <div className="border border-rose-950 p-1 rounded-full cursor-pointer" onClick={() => deleteProduct(elemet.id)}>
                     <img
                       src="/images/icon-remove-item.svg"
                       alt="delete product"
