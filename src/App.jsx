@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react"
-import { productsData } from "./api/api"
 import Product from "./components/Product"
 import Cart from "./components/Cart"
+import { UseCart } from "./hooks/UseCart"
 
 function App() {
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    productsData().then(result => setProducts(result.data))
-  }, [])
-
-  console.log(products);
   
+  const { products } = UseCart();
 
   return (
     <div className="w-10/12 m-auto">
