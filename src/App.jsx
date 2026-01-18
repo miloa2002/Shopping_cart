@@ -4,7 +4,7 @@ import { UseCart } from "./hooks/UseCart"
 
 function App() {
   
-  const { products, cart, addToCart, increaseQuantity, decreaseQuantity, deleteProduct } = UseCart();
+  const { products, cart, addToCart, increaseQuantity, decreaseQuantity, deleteProduct, confirmOrderButton } = UseCart();
 
   return (
     <div className="w-10/12 m-auto">
@@ -22,7 +22,7 @@ function App() {
         </main>
 
         <div className="md:w-2/5">
-          <Cart cart={cart} deleteProduct={deleteProduct}/>
+          <Cart cart={cart} deleteProduct={deleteProduct} confirmOrderButton={confirmOrderButton} />
         </div>
       </div>
     </div>

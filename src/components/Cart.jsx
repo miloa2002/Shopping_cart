@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { numberPrice } from "../utils";
 
-export default function Cart({ cart = [], deleteProduct }) {
+export default function Cart({ cart = [], deleteProduct, confirmOrderButton }) {
   const orderTotals = useMemo(() => {
     return cart.reduce(
       (accum, element) => accum + element.price * element.quantity,
@@ -66,7 +66,10 @@ export default function Cart({ cart = [], deleteProduct }) {
             </p>
           </div>
 
-          <button className="text-white bg-red-700 rounded-full w-full h-14 cursor-pointer">
+          <button 
+            className="text-white bg-red-700 rounded-full w-full h-14 cursor-pointer"
+            onClick={confirmOrderButton}
+          >
             Confirm Order
           </button>
         </div>

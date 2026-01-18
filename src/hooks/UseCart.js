@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { productsData } from "../api/api";
+import { productsData, confirmOrder } from "../api/api";
 
 export const UseCart = () => {
   const [products, setProducts] = useState([]);
@@ -54,6 +54,15 @@ export const UseCart = () => {
     )
   }
 
+  const confirmOrderButton = async () => {
+    try {
+      const result = await confirmOrder(cart);
+      window.location.href = result.data.url;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     const getProducts = async () => {
         try {
@@ -73,6 +82,7 @@ export const UseCart = () => {
     addToCart,
     increaseQuantity,
     decreaseQuantity,
-    deleteProduct
+    deleteProduct,
+    confirmOrderButton
   };
 };
